@@ -10,7 +10,7 @@ namespace assignment1
     {
         static void Main(string[] args)
         {
-            WineItemCollection wineItemCollection = new WineItemCollection();
+            WineItemCollection wineItemCollection = new WineItemCollection(); //Create a WineItemCollection object, this will be passed to and interacted with in multiple classes
             UserInterface UI = new UserInterface(wineItemCollection); //Create UI Object
 
 

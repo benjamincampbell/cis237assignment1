@@ -22,10 +22,11 @@ namespace assignment1
             if (!listLoaded)//Make sure the list can only be loaded once
             {
                 StreamReader reader = new StreamReader("..\\..\\..\\datafiles\\WineList.csv");//Create parser object
+                string[] lineSplit;
 
                 while (!reader.EndOfStream)
                 {
-                    string[] lineSplit = reader.ReadLine().Split(','); //Splits the line, using commas as delimiters
+                    lineSplit = reader.ReadLine().Split(','); //Splits the line, using commas as delimiters
 
                     WineItem item = new WineItem(lineSplit[0], lineSplit[1], lineSplit[2]);//Create the WineItem using the information from the line
                     collection.addWineItem(item);//Load the item into the collection

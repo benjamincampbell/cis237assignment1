@@ -33,9 +33,7 @@ namespace assignment1
         }
 
         public void showMenu()
-        {
-            while (true)
-            {   //We want to run the menu forever now, until the user exits
+        {  //We want to run the menu forever now, until the user exits
                 Console.WriteLine(menu);
                 string userInput = Console.ReadLine().ToString();
                 switch (userInput)
@@ -55,10 +53,11 @@ namespace assignment1
                     case "4":
                         Environment.Exit(0);
                         break;
+                    default:
+                        Console.WriteLine("Command not recognized.");
+                        showMenu();
+                        break;
                 }
-            }
-
-
         }
 
         public void itemList()
