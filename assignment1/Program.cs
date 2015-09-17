@@ -10,7 +10,9 @@ namespace assignment1
     {
         static void Main(string[] args)
         {
-            UserInterface UI = new UserInterface(); //Create UI Object
+            WineItemCollection wineItemCollection = new WineItemCollection();
+            UserInterface UI = new UserInterface(wineItemCollection); //Create UI Object
+
 
             UI.loadWineList();
             UI.showMenu();

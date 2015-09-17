@@ -20,12 +20,12 @@ namespace assignment1
             this.pack = pack;
         }
 
-        public string ToString()
+        public override string ToString()
         {
             string itemOutput = "";
 
-            itemOutput += this.id;
-            itemOutput += this.description;
+            itemOutput += this.id + ", ";
+            itemOutput += this.description + ", ";
             itemOutput += this.pack;
 
             return itemOutput;

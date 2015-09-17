@@ -29,10 +29,42 @@ namespace assignment1
             string output = "";
             foreach (WineItem item in wineItems)
             {
-                output += item.ToString() + Environment.NewLine;
+                if (item != null)//Make sure if there is no item, this isn't ran
+                {
+                    output += item.ToString() + Environment.NewLine;
+                }
             }
 
             return output;
+        }
+
+        public string search(string ID)
+        {
+            int lengthOfArraySearch = 0;
+            string result = "";
+
+            while (lengthOfArraySearch < wineItems.Length)
+            {
+                try
+                {
+                    if (wineItems[lengthOfArraySearch].ID == ID)
+                    {
+                        result += wineItems[lengthOfArraySearch].ID + ", " + wineItems[lengthOfArraySearch].Description + ", " + wineItems[lengthOfArraySearch].Pack;
+                        lengthOfArraySearch = wineItems.Length;
+                    }
+                    else
+                    {
+                        lengthOfArraySearch++;
+                    }
+                }
+                catch
+                {
+                    result = "There was no item found matching the ID " + ID;
+                    lengthOfArraySearch = wineItems.Length;
+                }
+            }
+
+            return result;
         }
     }
 }
