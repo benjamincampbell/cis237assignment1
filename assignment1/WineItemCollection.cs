@@ -20,8 +20,8 @@ namespace assignment1
 
         public void addWineItem(WineItem item)
         {
-            wineItems[lengthOfArray] = item;
-            lengthOfArray++;
+                wineItems[lengthOfArray] = item;
+                lengthOfArray++;
         }
 
         public string getWineItemsString()
@@ -65,6 +65,35 @@ namespace assignment1
             }
 
             return result;
+        }
+
+        public bool idExists(string ID)
+        {
+            int lengthOfArrayIDExists = 0;
+
+            try
+            {
+                while (lengthOfArrayIDExists < wineItems.Length)
+                {
+                    if (wineItems[lengthOfArrayIDExists].ID == ID)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        lengthOfArrayIDExists++;
+                    }
+
+                }
+
+            }
+
+            catch
+            {
+                return false;
+            }
+
+            return false;
         }
     }
 }

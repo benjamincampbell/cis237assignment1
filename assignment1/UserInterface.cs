@@ -83,11 +83,11 @@ namespace assignment1
         public void itemAdd()
         {
             Console.WriteLine("Please enter the ID of the new item:" + Environment.NewLine);
-            string newID = Console.ReadLine().ToString();
+            string newID = getInput(Console.ReadLine().ToString(), "ID");
             Console.WriteLine("Please enter the desciption of the new item:" + Environment.NewLine);
-            string newDesc = Console.ReadLine().ToString();
+            string newDesc = getInput(Console.ReadLine().ToString(), "description");
             Console.WriteLine("Please enter the pack of the new item:" + Environment.NewLine);
-            string newPack = Console.ReadLine().ToString();
+            string newPack = getInput(Console.ReadLine().ToString(), "pack");
 
             WineItem newItem = new WineItem(newID, newDesc, newPack);
             wineItemCollection.addWineItem(newItem);
@@ -96,6 +96,26 @@ namespace assignment1
         public void exit()
         {
             Environment.Exit(0);
+        }
+
+        public string getInput(string rawInput, string field)
+        {   //Method to validate/clean up input so it doesn't need to be done repeatedly
+            string result = "";
+
+            while (result == "")
+            {
+                if (rawInput.Trim() != "")
+                {
+                    result = rawInput.Trim();
+                }
+                else
+                {
+                    Console.WriteLine("Please enter data for " + field);
+                    rawInput = Console.ReadLine().ToString();
+                }
+            }
+
+            return result;
         }
     }
 }
