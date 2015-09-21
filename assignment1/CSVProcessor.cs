@@ -29,7 +29,7 @@ namespace assignment1
                     lineSplit = reader.ReadLine().Split(','); //Splits the line, using commas as delimiters
 
                     WineItem item = new WineItem(lineSplit[0], lineSplit[1], lineSplit[2]);//Create the WineItem using the information from the line
-                    collection.addWineItem(item);//Load the item into the collection
+                    collection.addWineItem(item, false);//Load the item into the collection
 
                 }
 

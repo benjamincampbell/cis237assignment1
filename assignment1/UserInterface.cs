@@ -90,7 +90,7 @@ namespace assignment1
             string newPack = getInput(Console.ReadLine().ToString(), "pack");
 
             WineItem newItem = new WineItem(newID, newDesc, newPack);
-            wineItemCollection.addWineItem(newItem);
+            wineItemCollection.addWineItem(newItem, true);
         }
 
         public void exit()

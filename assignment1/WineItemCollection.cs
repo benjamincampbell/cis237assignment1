@@ -18,10 +18,25 @@ namespace assignment1
             lengthOfArray = 0;
         }
 
-        public void addWineItem(WineItem item)
+        public void addWineItem(WineItem item, bool manEntry)
         {
+            if (!manEntry) //If we are loading a list for the first time, don't bother checking for IDs
+            {
                 wineItems[lengthOfArray] = item;
                 lengthOfArray++;
+            }
+            else
+            {               //If the user is manually entering a new item, we should check and make sure the ID doesn't already exist
+                if (!idExists(item.ID))
+                {                   //If it doesn't exist, go ahead and add it.
+                    wineItems[lengthOfArray] = item;
+                    lengthOfArray++;
+                }
+                else
+                {                   //If it does exist, let the user know, the item will not be added.
+                    Console.WriteLine("Item already exists with ID " + item.ID);
+                }
+            }
         }
 
         public string getWineItemsString()
@@ -68,7 +83,7 @@ namespace assignment1
         }
 
         public bool idExists(string ID)
-        {
+        {   //Method for use with adding items manually, to make sure one doesn't already exist with the chosen ID
             int lengthOfArrayIDExists = 0;
 
             try
